@@ -197,6 +197,6 @@ def main():
         if restart.lower() != 'yes':
             break
 
-
+# to startup the program
 if __name__ == "__main__":
 	main()
