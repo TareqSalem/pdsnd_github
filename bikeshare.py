@@ -8,7 +8,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 months = ['january', 'february', 'march', 'april', 'may', 'june']
-weeks = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday']
+weeks = ['sunday','monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 
 def get_filters():
     """
@@ -54,11 +54,11 @@ def get_filters():
                 day = input('Please write month name or all: ').lower()
             else:
                 break
-    
+
     if city == '-1' or month == '-1' or day == '-1':
         print('Exit by user using -1')
         sys.exit(0)
-        
+
     print('-'*40)
     return city, month, day
 
@@ -153,7 +153,7 @@ def user_stats(df):
         print("The counts of user types are : \n{}\n".format( df['User Type'].value_counts().to_string() ))
     except Exception as e:
         print("No {} field avaliable".format( e ))
-    
+
 
     # TO DO: Display counts of gender
     try:
@@ -167,7 +167,7 @@ def user_stats(df):
         print("The earliest, most recent, and most common year of birt is: {}".format( int(m_year) ))
     except Exception as e:
         print("No {} field avaliable".format( e ))
-    
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -192,7 +192,7 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
         view_data(df)
-		
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
